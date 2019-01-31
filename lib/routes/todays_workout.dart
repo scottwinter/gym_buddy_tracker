@@ -12,19 +12,38 @@ class _MyAppState extends State<MyApp> {
       appBar: AppBar(
         title: Text('Gym Buddy'),
       ),
-      body: Container(
+      body: Card(
         child: Column(
+          mainAxisSize: MainAxisSize.min,
           children: <Widget>[
-            Row(
-              children: <Widget>[
-                Text("Bench Press")
-
-            ]
+            const ListTile(
+              leading: Icon(Icons.fitness_center),
+              title: Text('Bench Press'),
+//              subtitle: Text('Music by Julie Gable. Lyrics by Sidney Stein.'),
             ),
-            Row(
-              children: <Widget>[
-                Text("Data goes here")
-              ],
+            Container(
+              margin: EdgeInsets.all(10),
+              child: Row (
+                children: <Widget>[
+                  Column (
+                    children: <Widget>[
+                      Row (
+                        children: <Widget>[
+                          Text("Weight")
+                        ],
+                      ),
+                      Row (
+                        children: <Widget>[
+                          Text("Reps")
+                        ],
+                      )
+                    ],
+                  ),
+                  Column (
+
+                  )
+                ],
+              ),
             )
           ],
         ),
