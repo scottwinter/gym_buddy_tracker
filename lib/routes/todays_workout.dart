@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class MyApp extends StatefulWidget {
+class TodayWorkout extends StatefulWidget {
   @override
-  _MyAppState createState() => new _MyAppState();
+  _TodayWorkoutState createState() => new _TodayWorkoutState();
 }
 
-class _MyAppState extends State<MyApp> {
+class _TodayWorkoutState extends State<TodayWorkout> {
   List<String> exercises;
 
   @override
