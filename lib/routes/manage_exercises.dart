@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gym_buddy_tracker/routes/todays_workout.dart';
+import 'package:gym_buddy_tracker/routes/add_edit_exercise.dart';
 
 class ManageExercises extends StatefulWidget {
   @override
@@ -24,7 +25,7 @@ class _ManageExercisesState extends State<ManageExercises> {
         onPressed: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => TodayWorkout()),
+            MaterialPageRoute(builder: (context) => AddEditExercise()),
           );
         },
         child: Icon(Icons.add),
