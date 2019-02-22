@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gym_buddy_tracker/routes/manage_exercises.dart';
-import 'package:gym_buddy_tracker/routes/todays_workout.dart';
+import 'package:gym_buddy_tracker/routes/tab_screen.dart';
 
 void main() => runApp(MainApp());
 
@@ -11,7 +10,7 @@ class MainApp extends StatelessWidget {
     return MaterialApp(
       title: "Gym Buddy",
       theme: ThemeData.light(),
-      home: ManageExercises()
+      home: MainTabPage()
     );
   }
 }

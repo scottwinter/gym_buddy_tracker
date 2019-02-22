@@ -13,9 +13,9 @@ class _ManageExercisesState extends State<ManageExercises> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Manage Exercises'),
-      ),
+//      appBar: AppBar(
+//        title: Text('Manage Exercises'),
+//      ),
       body: ListView.builder(
           itemCount: exercises.length,
           itemBuilder: (context, index) {
