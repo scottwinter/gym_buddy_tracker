@@ -3,47 +3,49 @@ import 'package:flutter_tagging/flutter_tagging.dart';
 
 class AddEditExercise extends StatefulWidget {
   final String action;
+
   AddEditExercise(this.action);
+
   @override
   _AddEditExerciseState createState() => new _AddEditExerciseState(action);
 }
 
 class _AddEditExerciseState extends State<AddEditExercise> {
   final String action;
+
   _AddEditExerciseState(this.action);
+
   final GlobalKey<FormState> _formKey = new GlobalKey<FormState>();
   List<dynamic> categoryList = <dynamic>[];
 
-
-
   @override
   Widget build(BuildContext context) {
-
     String label = "";
-    if(action == "add"){
+    String title = "";
+    if (action == "add") {
       label = "Add";
+      title = "Add New Exercise";
     } else {
       label = "Update";
+      title = "Update Exercise";
     }
 
     final Size screenSize = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
-        title: Text('Exercise Details'),
+        title: Text(title),
       ),
-      body:  Container(
+      body: Container(
           padding: new EdgeInsets.all(20.0),
           child: new Form(
             key: this._formKey,
             child: new ListView(
               children: <Widget>[
                 new TextFormField(
-                    keyboardType: TextInputType.emailAddress, // Use email input type for emails.
+                    keyboardType: TextInputType.emailAddress,
+                    // Use email input type for emails.
                     decoration: new InputDecoration(
-                        hintText: 'Bench Press',
-                        labelText: 'Exercise Name'
-                    )
-                ),
+                        hintText: 'Bench Press', labelText: 'Exercise Name')),
                 Padding(
                   padding: const EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 10.0),
                   child: FlutterTagging(
@@ -54,7 +56,7 @@ class _AddEditExerciseState extends State<AddEditExercise> {
                     addButtonWidget: _buildAddButton(),
                     chipsColor: Colors.orange,
                     chipsFontColor: Colors.white,
-                    deleteIcon: Icon(Icons.cancel,color: Colors.white),
+                    deleteIcon: Icon(Icons.cancel, color: Colors.white),
                     chipsPadding: EdgeInsets.all(2.0),
                     chipsFontSize: 16.0,
                     chipsSpacing: 5.0,
@@ -74,29 +76,22 @@ class _AddEditExerciseState extends State<AddEditExercise> {
                   child: new RaisedButton(
                     child: new Text(
                       label,
-                      style: new TextStyle(
-                          color: Colors.white
-                      ),
+                      style: new TextStyle(color: Colors.white),
                     ),
                     onPressed: () => _saveExercise(),
                     color: Colors.blue,
                   ),
-                  margin: new EdgeInsets.only(
-                      top: 20.0
-                  ),
+                  margin: new EdgeInsets.only(top: 20.0),
                 )
               ],
             ),
-          )
-      ),
-
+          )),
     );
   }
 
-  _saveExercise(){
-    print("----------------------------"+categoryList.toString());
+  _saveExercise() {
+    print("----------------------------" + categoryList.toString());
   }
-
 
   Widget _buildAddButton() {
     return Container(
@@ -146,4 +141,3 @@ class TagSearchService {
     return filteredTagList;
   }
 }
-

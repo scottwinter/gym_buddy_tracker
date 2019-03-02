@@ -1,21 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:gym_buddy_tracker/routes/new_routine.dart';
-import 'package:gym_buddy_tracker/routes/todays_workout.dart';
+import 'package:gym_buddy_tracker/routes/add_edit_exercise.dart';
 
-class ManageRoutines extends StatefulWidget {
+class BuildRoutine extends StatefulWidget {
   @override
-  _ManageRoutinesState createState() => new _ManageRoutinesState();
+  _BuildRoutineState createState() => new _BuildRoutineState();
 }
 
-class _ManageRoutinesState extends State<ManageRoutines> {
+class _BuildRoutineState extends State<BuildRoutine> {
   List<String> exercises;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-//      appBar: AppBar(
-//        title: Text('Manage Routines'),
-//      ),
+      appBar: AppBar(
+        title: Text("Leg Day"),
+      ),
       body: ListView.builder(
           itemCount: exercises.length,
           itemBuilder: (context, index) {
@@ -25,7 +24,7 @@ class _ManageRoutinesState extends State<ManageRoutines> {
         onPressed: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => AddEditRoutine()),
+            MaterialPageRoute(builder: (context) => AddEditExercise("add")),
           );
         },
         child: Icon(Icons.add),
@@ -40,8 +39,8 @@ class _ManageRoutinesState extends State<ManageRoutines> {
 
   List<String> createWorkout() {
     List<String> exerciseList = new List();
-    exerciseList.add("Leg Day");
-    exerciseList.add("Upper Body Day");
+    exerciseList.add("Incline Dumbell Press");
+    exerciseList.add("Dumbell Curls");
     return exerciseList;
   }
 
@@ -53,7 +52,7 @@ class _ManageRoutinesState extends State<ManageRoutines> {
             // function gets executed on a tap
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => TodayWorkout()),
+              MaterialPageRoute(builder: (context) => AddEditExercise("edit")),
             );
           },
           child: Column(
@@ -64,8 +63,7 @@ class _ManageRoutinesState extends State<ManageRoutines> {
                 title: Text(exercise,
                     style:
                     TextStyle(fontWeight: FontWeight.bold, fontSize: 20)),
-                subtitle: Text('Monday | Wednesday'),
-                trailing: Text("2d ago"),
+//                subtitle: Text('Upper Body | Push | Arms'),
               ),
             ],
           ),
