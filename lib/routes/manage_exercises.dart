@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:gym_buddy_tracker/routes/todays_workout.dart';
 import 'package:gym_buddy_tracker/routes/add_edit_exercise.dart';
 
 class ManageExercises extends StatefulWidget {
@@ -13,9 +12,6 @@ class _ManageExercisesState extends State<ManageExercises> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-//      appBar: AppBar(
-//        title: Text('Manage Exercises'),
-//      ),
       body: ListView.builder(
           itemCount: exercises.length,
           itemBuilder: (context, index) {
@@ -25,7 +21,7 @@ class _ManageExercisesState extends State<ManageExercises> {
         onPressed: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => AddEditExercise()),
+            MaterialPageRoute(builder: (context) => AddEditExercise("add")),
           );
         },
         child: Icon(Icons.add),
@@ -51,6 +47,10 @@ class _ManageExercisesState extends State<ManageExercises> {
         child: InkWell(
           onTap: () {
             // function gets executed on a tap
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => AddEditExercise("edit")),
+            );
           },
           child: Column(
             mainAxisSize: MainAxisSize.min,
@@ -61,7 +61,6 @@ class _ManageExercisesState extends State<ManageExercises> {
                     style:
                         TextStyle(fontWeight: FontWeight.bold, fontSize: 20)),
                 subtitle: Text('Upper Body | Push | Arms'),
-                trailing: Text("2d ago"),
               ),
             ],
           ),

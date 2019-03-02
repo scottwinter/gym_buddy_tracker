@@ -7,23 +7,21 @@ class MainTabPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: DefaultTabController(
-        length: 3,
+        length: 2,
         child: Scaffold(
           appBar: AppBar(
             bottom: TabBar(
               tabs: [
-                Tab(icon: Icon(Icons.fitness_center), text: "Exercises"),
-                Tab(icon: Icon(Icons.list), text: "Routines",),
-                Tab(icon: Icon(Icons.directions_bike)),
-              ],
+                Tab(text: "Exercises"),// icon: Icon(Icons.fitness_center),
+                Tab(text: "Routines"),// icon: Icon(Icons.list),
+            ],
             ),
-            title: Text('Tabs Demo'),
+            title: Text('Gym Buddy'),
           ),
           body: TabBarView(
             children: [
               ManageExercises(),
               ManageRoutines(),
-              Icon(Icons.directions_bike),
             ],
           ),
         ),
