@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gym_buddy_tracker/routes/add_edit_exercise.dart';
+import 'package:gym_buddy_tracker/routes/add_exercise_to_routine.dart';
 
 class BuildRoutine extends StatefulWidget {
   @override
@@ -24,7 +25,7 @@ class _BuildRoutineState extends State<BuildRoutine> {
         onPressed: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => AddEditExercise("add")),
+            MaterialPageRoute(builder: (context) => AddExerciseToRoutine()),
           );
         },
         child: Icon(Icons.add),
@@ -48,13 +49,7 @@ class _BuildRoutineState extends State<BuildRoutine> {
     return Card(
         elevation: 5.0,
         child: InkWell(
-          onTap: () {
-            // function gets executed on a tap
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => AddEditExercise("edit")),
-            );
-          },
+          onTap: () {},
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[

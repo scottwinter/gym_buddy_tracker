@@ -1,39 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tagging/flutter_tagging.dart';
 
-class AddEditExercise extends StatefulWidget {
-  final String action;
-
-  AddEditExercise(this.action);
+class AddExerciseToRoutine extends StatefulWidget {
+//  final String action;
+//
+//  AddExerciseToRoutine(this.action);
 
   @override
-  _AddEditExerciseState createState() => new _AddEditExerciseState(action);
+  _AddExerciseToRoutineState createState() => new _AddExerciseToRoutineState();
 }
 
-class _AddEditExerciseState extends State<AddEditExercise> {
-  final String action;
-
-  _AddEditExerciseState(this.action);
+class _AddExerciseToRoutineState extends State<AddExerciseToRoutine> {
+//  final String action;
+//
+//  _AddExerciseToRoutineState(this.action);
 
   final GlobalKey<FormState> _formKey = new GlobalKey<FormState>();
   List<dynamic> categoryList = <dynamic>[];
 
   @override
   Widget build(BuildContext context) {
-    String label = "";
-    String title = "";
-    if (action == "add") {
-      label = "Add";
-      title = "Create New Exercise";
-    } else {
-      label = "Update";
-      title = "Update Exercise";
-    }
-
     final Size screenSize = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
-        title: Text(title),
+        title: Text("Add Exercise to Routine"),
       ),
       body: Container(
           padding: new EdgeInsets.all(20.0),
@@ -41,18 +31,14 @@ class _AddEditExerciseState extends State<AddEditExercise> {
             key: this._formKey,
             child: new ListView(
               children: <Widget>[
-                new TextFormField(
-                    keyboardType: TextInputType.emailAddress,
-                    // Use email input type for emails.
-                    decoration: new InputDecoration(
-                        hintText: 'Bench Press', labelText: 'Exercise Name')),
+
                 Padding(
                   padding: const EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 10.0),
                   child: FlutterTagging(
                     textFieldDecoration: InputDecoration(
                         border: OutlineInputBorder(),
-                        hintText: "Category",
-                        labelText: "Enter Categories"),
+                        hintText: "Bench Press",
+                        labelText: "Search Exercises"),
                     addButtonWidget: _buildAddButton(),
                     chipsColor: Colors.orange,
                     chipsFontColor: Colors.white,
@@ -75,7 +61,7 @@ class _AddEditExerciseState extends State<AddEditExercise> {
                   width: screenSize.width,
                   child: new RaisedButton(
                     child: new Text(
-                      label,
+                      "ADD",
                       style: new TextStyle(color: Colors.white),
                     ),
                     onPressed: () => _saveExercise(),
