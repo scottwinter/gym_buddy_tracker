@@ -34,9 +34,10 @@ class _AddEditRoutineState extends State<AddEditRoutine> {
                       style: new TextStyle(color: Colors.white),
                     ),
                     onPressed: () {
-                      Navigator.push(
+                      Navigator.pushAndRemoveUntil(
                         context,
                         MaterialPageRoute(builder: (context) => BuildRoutine()),
+                        ModalRoute.withName('/'),
                       );
                     },
                     color: Colors.blue,

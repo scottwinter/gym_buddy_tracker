@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gym_buddy_tracker/routes/add_edit_exercise.dart';
+import 'package:gym_buddy_tracker/routes/exercise_details.dart';
 
 class ManageExercises extends StatefulWidget {
   @override
@@ -49,7 +50,7 @@ class _ManageExercisesState extends State<ManageExercises> {
             // function gets executed on a tap
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => AddEditExercise("edit")),
+              MaterialPageRoute(builder: (context) => ViewExerciseDetails()),
             );
           },
           child: Column(
